@@ -1,0 +1,56 @@
+<% if current_user && current_user.present? %>
+  <%= form_tag(photographers_path, method: :get,class:'form-inline') do %>
+    <%= text_field_tag :term, params[:term],class:'form-control mr-sm-2',placeholder:'Search by name' %>
+    <%= submit_tag 'search', name: nil, class:'btn btn-outline-success my-2 my-sm-0' %>
+  <% end %>
+<% end %>
+  <h1>Photographers</h1>
+<table>
+  <thead>
+    <tr>
+    <% if signed_in?%>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Address</th>
+      <th>Contact</th>
+      <% end %>
+      <th>Upload date</th>
+      <th>Image</th>
+      <th>Description</th>
+      <th>Video</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+    <% @photographers.each do |photographer| %>
+      <tr> 
+      <% if current_user && current_user.present? %>
+        <td><%= photographer.user.name %></td>
+        <td><%= photographer.user.email %></td>
+        <td><%= photographer.user.address %></td>
+        <td><%= photographer.user.contact %></td>
+        <% end %>
+        <td><%= photographer.upload_date %></td>
+        <td><%= image_tag photographer.image.url,style:'width:200px' %></td>
+        <td><%= photographer.description %></td>
+        <td><video controls width="300" src="<%= photographer.video %>"></video></td>
+        <% if current_user && current_user.user_role == 'client' %>
+           <td><%= link_to 'Show', photographer, class:"btn btn-info" %></td>
+        <% end %>
+        <% if current_user && current_user.user_role == 'photographer' %>
+        <td><%= link_to 'Show', photographer, class:"btn btn-info" %></td>
+        <td><%= link_to 'Edit', edit_photographer_path(photographer) ,class:"btn btn-info" %></td>
+        <td><%= link_to 'Destroy', photographer, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %></td>
+      <% end %>
+        </tr>
+  
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<% if current_user && current_user.user_role == 'photographer' %>
+<%= link_to 'New Post', new_photographer_path %> | <%= link_to 'New Gallery', new_gallery_path %>
+<% end %>

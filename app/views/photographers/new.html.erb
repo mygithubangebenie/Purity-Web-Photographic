@@ -1,0 +1,20 @@
+ 
+<% init = 0 %>
+<% @galleries.each do |gallery| %>
+ <% if current_user.id==gallery.user_id %>
+ <% init = 1 %>
+    <% break %>
+ <% end %>
+
+ <% end %>
+
+<% if init == 1%>
+<%= render 'form', photographer: @photographer %>
+<%= link_to 'back', photographers_path %>
+<% else %>
+<P>Please create gallery first</p>
+<script type="text/javascript">
+window.location.href="/photographers"   
+</script>
+<% end %>
+

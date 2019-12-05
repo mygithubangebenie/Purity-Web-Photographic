@@ -1,0 +1,5 @@
+<%= form_for ([@photographer, @photographer.comments.build]) do |f| %>
+  <%= f.text_field :email, value: current_user.email, class:"single-input", placeholder:"enter email" %>
+  <%= f.text_area :name, class:"single-input", placeholder:"enter comment"%>
+  <%= f.submit "post comment", class:"genric-btn info-border circle" %>
+  <% end %>

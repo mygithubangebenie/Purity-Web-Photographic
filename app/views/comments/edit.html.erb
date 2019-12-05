@@ -1,0 +1,5 @@
+<%= form_for ([@photographer, @comment]) do |f| %>
+    <%= f.text_area :email, class:"single-input"%>
+    <%= f.text_area :name, class:"single-input"%>
+    <%= f.submit "post comment", class:"genric-btn info-border circle" %>
+<%end%>

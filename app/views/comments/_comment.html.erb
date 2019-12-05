@@ -1,0 +1,16 @@
+<ul>
+  <% @comments.each do |comment| %>
+    <% if comment.id.present? %>
+      <li>
+        <p><br><%= comment.name %><br>
+    </li>
+      <li>
+        <p><br><%= comment.email %><br>
+      </li>
+        <%= link_to "delete", [comment.photographer, comment], method: :delete, class:"genric-btn danger-border circle" %>
+        <%= link_to "edit ", edit_photographer_comment_path(comment.photographer, comment), class:"genric-btn success-border circle" %></p>
+    </li>
+    <% end %>
+  <% end %>
+<%= render 'comments/form'%>
+</ul>

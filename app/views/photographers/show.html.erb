@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Upload date:</strong>
+  <%= @photographer.upload_date %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= image_tag @photographer.image.url, style:'width:200px'%>
+</p>
+
+<p>
+<strong>Description:</strong>
+<%= @photographer.description %>
+</p>
+
+<p>
+  <strong>Video:</strong>
+  <video controls width="640" height="480" src="<%= @photographer.video %>"></video>
+</p>
+<%= render 'comments/comment' %>
+
+<%= link_to 'Edit', edit_photographer_path(@photographer),class:"btn btn-info" %> |
+<%= link_to 'Back', photographers_path ,class:"btn btn-info"%>

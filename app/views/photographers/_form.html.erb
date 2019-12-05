@@ -1,0 +1,57 @@
+<%= form_with(model: photographer, local: true) do |form| %>
+  <% if photographer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(photographer.errors.count, "error") %> prohibited this photographer from being saved:</h2>
+
+      <ul>
+         <% photographer.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+           <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :upload_date %>
+    <%= form.date_select :upload_date,  id: :video_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.file_field :image,  id: :video_title%>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description,   id: :video_title%>
+  </div>
+
+  <div class="field">
+    <%= form.label :Video %>
+    <%= form.file_field :video, id: :video_title %>
+  </div>
+
+
+  <%= form_with(model: photographer, local: true, html: { multipart: true }) do |form| %>
+    <% if photographer.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(photographer.errors.count, "error") %> prohibited this video from being saved:</h2>
+  
+        <ul>
+        <% photographer.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="field">
+    
+    <%= form.hidden_field :gallery_id, value: current_user.gallery.id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+<% end %>
+
