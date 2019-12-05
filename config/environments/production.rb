@@ -1,7 +1,6 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
-  config.secret_key_base = '2+TogdqweT4LlNPafd52acU/OLU2l8jx/XeLPqcjhw9+1zQ59Ef0pxuXjeJJtxb3q0djXWkjcnFmlh/hCOdeaO8Sx/B3szXXXc6tB3A9fT1O7pLWHVIFeCCKw3thrkLs76nliDWS+R574lC8IWQ6ilrnNTCv8tNMaFXWxSjQIZNPwN16Bxw+IfUZMoIM59N9/GxlovkkNh6yqvszQdvlYTDp/228qjfQ7Vjadlybbxqgq8jNmTJ0ziH93HfhG9aDewzwQ8tlXYQFYeNEkXKlRhEqUFZ/pHHu/KQ2L9vDUEXp2sXzwzZ3UglNPk5ov7remLeid/5TU9YJCfHAlIWwsS6iFcW3YArq5/8TcOQL0FWR2s5wjQCWO5Z+c5kAeCXv0carVaj1XJOz9KFgJWYYYW4bIb1HDacyHHSC--h7bbhhaLiMmyCRHj--PIIdfwsmVvYzyVchd6GuBg=='
   # Code is not reloaded between requests.
   config.cache_classes = true
 
